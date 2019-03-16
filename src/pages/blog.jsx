@@ -9,9 +9,7 @@ import { Container, Section } from '../components/layout/Layout.styles';
 const BlogPage = ({
   data: {
     wordpressPage: {
-      acf: {
-        intro, pageBanner, theProblem, theSolution,
-      },
+      acf: { intro, pageBanner, theProblem, theSolution },
     },
   },
 }) => (
@@ -25,9 +23,9 @@ const BlogPage = ({
     />
     <Container>
       <Section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus sunt ex et optio
-        harum! Dignissimos eius libero veritatis vel quaerat aspernatur sed cumque quasi doloribus
-        accusamus unde, quidem optio?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus
+        sunt ex et optio harum! Dignissimos eius libero veritatis vel quaerat
+        aspernatur sed cumque quasi doloribus accusamus unde, quidem optio?
       </Section>
     </Container>
   </Layout>

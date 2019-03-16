@@ -30,22 +30,24 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "swiper": "^4.5.0",
-    "tailwind.macro": "^0.5.10"
+    "tailwind.macro": "^0.5.10",
+    "tailwindcss": "^0.7.4"
   },
   "devDependencies": {
     "babel-jest": "^24.3.1",
     "babel-preset-gatsby": "^0.1.8",
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.2",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "gatsby-plugin-eslint": "^2.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.3.1",
     "jest-dom": "^3.0.0",
     "prettier": "^1.16.4",
-    "react-testing-library": "^5.4.4",
-    "tailwindcss": "^0.7.4"
+    "react-testing-library": "^5.4.4"
   },
   "keywords": [
     "gatsby"

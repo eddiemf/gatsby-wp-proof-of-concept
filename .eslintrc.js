@@ -21,5 +21,15 @@ module.exports = {
     quotes: ['error', 'backtick'],
     'import/prefer-default-export': 0,
     'no-unused-expressions': 0,
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'ignore',
+      },
+    ],
   },
 };

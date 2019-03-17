@@ -1,3 +1,5 @@
+require(`dotenv`).config();
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -31,8 +33,8 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // your wordpress source
-        baseUrl: `tzh.nad.mybluehost.me/gatsby-wp-proof-of-concept`,
-        protocol: `https`,
+        baseUrl: process.env.WORDPRESS_BASE_URL,
+        protocol: process.env.WORDPRESS_BASE_URL_PROTOCOL,
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
         // does your site use the Advanced Custom Fields Plugin?
@@ -43,6 +45,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-eslint`,
   ],
 };

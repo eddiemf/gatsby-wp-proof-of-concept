@@ -31,5 +31,6 @@ module.exports = {
         functions: 'ignore',
       },
     ],
+    'global-require': 0,
   },
 };

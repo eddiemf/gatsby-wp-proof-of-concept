@@ -28,15 +28,16 @@ exports.createPages = ({ graphql, actions }) => {
         const categories = get(data, `allWordpressCategory.edges`, []).map(({ node }) => ({
           name: node.name,
           slug: node.slug,
+          description: node.description,
         }));
-        categories.forEach(({ node: category }) => {
+        categories.forEach(({ name, slug, description }) => {
           createPage({
-            path: `/categories/${category.slug}`,
+            path: `/categories/${slug}`,
             component: path.resolve(`./src/templates/Category.jsx`),
             context: {
-              categorySlug: category.slug,
-              categoryName: category.name,
-              categoryDescription: category.description,
+              categorySlug: slug,
+              categoryName: name,
+              categoryDescription: description,
               categories,
             },
           });

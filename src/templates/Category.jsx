@@ -1,24 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import get from 'lodash/get';
 
 import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
 import MainBanner from '../components/main-banner/index';
 import BlogLayout from '../components/blogLayout/BlogLayout';
 
-const Category = ({
-  pageContext,
-  data: {
-    wordpressPage: {
-      acf: { pageBanner },
-    },
-    allWordpressPost: { edges: postsEdges },
-  },
-}) => {
-  const posts = postsEdges.map(({ node }) => ({
+const Category = ({ pageContext, data }) => {
+  const pageBanner = get(data, `wordpressPage.acf.pageBanner`, {});
+  const posts = get(data, `allWordpressPost.edges`, []).map(({ node }) => ({
     ...node,
     id: node.wordpress_id,
-    imageSizes: node.featured_media.localFile.childImageSharp.fixed,
+    imageSizes: node.featured_media.localFile.childImageSharp,
     imageAlt: node.featured_media.alt_text,
   }));
 

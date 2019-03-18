@@ -7,9 +7,8 @@ import SEO from '../components/SEO';
 import MainBanner from '../components/main-banner/index';
 import BlogLayout from '../components/blogLayout/BlogLayout';
 
-const BlogPage = ({ data }) => {
-  const categories = get(data, `allWordpressCategory.edges`, []).map(({ node }) => node);
-  const pageBanner = get(data, `wordpressPage.acf.pageBanner`, []);
+const Category = ({ pageContext, data }) => {
+  const pageBanner = get(data, `wordpressPage.acf.pageBanner`, {});
   const posts = get(data, `allWordpressPost.edges`, []).map(({ node }) => ({
     ...node,
     id: node.wordpress_id,
@@ -19,31 +18,30 @@ const BlogPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Blog" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title={pageContext.categoryName} keywords={[`gatsby`, `application`, `react`]} />
       <MainBanner
         imageSizes={pageBanner.image.localFile.childImageSharp.fluid}
         imageAlt={pageBanner.imageAlt}
-        title={pageBanner.title}
-        subtitle={pageBanner.subtitle}
+        title={`<h1>${pageContext.categoryName}</h1>`}
+        subtitle={`<p>${pageContext.categoryDescription}</p>`}
       />
-      <BlogLayout categories={categories} posts={posts} />
+      <BlogLayout
+        categories={pageContext.categories}
+        currentCategory={{
+          name: pageContext.categoryName,
+          slug: pageContext.categorySlug,
+        }}
+        posts={posts}
+      />
     </Layout>
   );
 };
 
-export default BlogPage;
+export default Category;
 
-export const pageQuery = graphql`
-  query {
-    allWordpressCategory(filter: { slug: { ne: "uncategorized" } }) {
-      edges {
-        node {
-          name
-          slug
-        }
-      }
-    }
-    allWordpressPost {
+export const query = graphql`
+  query($categorySlug: String!) {
+    allWordpressPost(filter: { categories: { elemMatch: { slug: { eq: $categorySlug } } } }) {
       edges {
         node {
           wordpress_id

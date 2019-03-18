@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const get = require(`lodash/get`);
 const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
@@ -24,11 +25,11 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `)
       .then(({ data }) => {
-        const categories = data.allWordpressCategory.edges.map(({ node }) => ({
+        const categories = get(data, `allWordpressCategory.edges`, []).map(({ node }) => ({
           name: node.name,
           slug: node.slug,
         }));
-        data.allWordpressCategory.edges.forEach(({ node: category }) => {
+        categories.forEach(({ node: category }) => {
           createPage({
             path: `/categories/${category.slug}`,
             component: path.resolve(`./src/templates/Category.jsx`),

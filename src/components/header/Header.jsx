@@ -1,5 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 
 import {
   HeaderMenuItem,
@@ -13,19 +14,21 @@ import {
 const Header = ({ logo }) => (
   <HeaderBase>
     <StyledHeaderContainer>
-      <Img fixed={logo.childImageSharp.fixed} alt="Gatsby logo" />
+      <Link to="/">
+        <Img fixed={logo.childImageSharp.fixed} alt="Gatsby logo" />
+      </Link>
       <HeaderMainMenu>
         <HeaderMenuItem>
-          <HeaderMenuItemLink to="/">Intro</HeaderMenuItemLink>
+          <HeaderMenuItemLink to="/#intro">Intro</HeaderMenuItemLink>
         </HeaderMenuItem>
         <HeaderMenuItem>
-          <HeaderMenuItemLink to="/">The problem</HeaderMenuItemLink>
+          <HeaderMenuItemLink to="/#the-problem">The problem</HeaderMenuItemLink>
         </HeaderMenuItem>
         <HeaderMenuItem>
-          <HeaderMenuItemLink to="/">The solution</HeaderMenuItemLink>
+          <HeaderMenuItemLink to="/#the-solution">The solution</HeaderMenuItemLink>
         </HeaderMenuItem>
         <HeaderMenuItem>
-          <HeaderMenuItemLink to="/">About</HeaderMenuItemLink>
+          <HeaderMenuItemLink to="/#about-me">About</HeaderMenuItemLink>
         </HeaderMenuItem>
       </HeaderMainMenu>
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
 
 import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
@@ -33,19 +32,19 @@ const IndexPage = ({
       buttonTitle={pageBanner.anchor_title}
     />
     <Container>
-      <Section>
+      <Section id="intro">
         <SectionTitle dangerouslySetInnerHTML={{ __html: intro.title }} />
         <SectionContent dangerouslySetInnerHTML={{ __html: intro.content }} />
       </Section>
-      <Section>
+      <Section id="the-problem">
         <SectionTitle dangerouslySetInnerHTML={{ __html: theProblem.title }} />
         <SectionContent dangerouslySetInnerHTML={{ __html: theProblem.content }} />
       </Section>
-      <Section>
+      <Section id="the-solution">
         <SectionTitle dangerouslySetInnerHTML={{ __html: theSolution.title }} />
         <SectionContent dangerouslySetInnerHTML={{ __html: theSolution.content }} />
       </Section>
-      <Section>
+      <Section id="about-me">
         <SectionTitle>
           <h2>About me</h2>
         </SectionTitle>

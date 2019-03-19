@@ -22,6 +22,14 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allWordpressPost {
+          edges {
+            node {
+              id
+              slug
+            }
+          }
+        }
       }
     `)
       .then(({ data }) => {
@@ -40,6 +48,19 @@ exports.createPages = ({ graphql, actions }) => {
               categoryDescription: description,
               categories,
             },
+          });
+        });
+
+        const posts = get(data, `allWordpressPost.edges`, []).map(({ node: { id, slug } }) => ({
+          id,
+          slug,
+        }));
+
+        posts.forEach(({ id, slug }) => {
+          createPage({
+            path: `/blog/${slug}`,
+            component: path.resolve(`./src/templates/SinglePost.jsx`),
+            context: { id },
           });
         });
 

@@ -14,6 +14,7 @@ describe(`Slider component`, () => {
     posts: [
       {
         id: 1,
+        slug: `the-title`,
         title: `the title`,
         date: `2019-09-02T13:23:34.000Z`,
         categories: [{ slug: `slug-1`, name: `name 1` }],
@@ -22,9 +23,13 @@ describe(`Slider component`, () => {
       },
       {
         id: 2,
+        slug: `the-title-2`,
         title: `the title 2`,
         date: `2019-03-08T13:23:34.000Z`,
-        categories: [{ slug: `slug-2`, name: `name 2` }, { slug: `slug-3`, name: `name 3` }],
+        categories: [
+          { slug: `slug-2`, name: `name 2` },
+          { slug: `slug-3`, name: `name 3` },
+        ],
         imageSizes: { fixed: { ...imageSizes.fixed, src: `source_2` } },
         imageAlt: `nice image`,
       },
@@ -53,10 +58,33 @@ describe(`Slider component`, () => {
     expect(getByText(/name 3/i).getAttribute(`href`)).toMatch(/slug-3/i);
   });
 
+  it(`renders the categories links of each post with proper title`, () => {
+    const { getByTitle } = render(<Posts {...props} />);
+
+    expect(getByTitle(/name 1/i)).toBeDefined;
+    expect(getByTitle(/name 2/i)).toBeDefined;
+    expect(getByTitle(/name 3/i)).toBeDefined;
+  });
+
   it(`renders the image of each post with proper src and alt attributes`, () => {
     const { getByAltText } = render(<Posts {...props} />);
 
-    expect(getByAltText(/cool image/i).getAttribute(`src`)).toMatch(/source_1/i);
-    expect(getByAltText(/nice image/i).getAttribute(`src`)).toMatch(/source_2/i);
+    expect(getByAltText(/cool image/i).getAttribute(`src`)).toMatch(
+      /source_1/i
+    );
+    expect(getByAltText(/nice image/i).getAttribute(`src`)).toMatch(
+      /source_2/i
+    );
+  });
+
+  it(`renders the link of each post with proper href attribute`, () => {
+    const { getByTestId } = render(<Posts {...props} />);
+
+    expect(getByTestId(`link-1`).getAttribute(`href`)).toMatch(
+      /\/blog\/the-title/i
+    );
+    expect(getByTestId(`link-2`).getAttribute(`href`)).toMatch(
+      /\/blog\/the-title-2/i
+    );
   });
 });

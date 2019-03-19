@@ -46,6 +46,7 @@ const MainBannerButton = styled.a`
 
   &:hover {
     opacity: 0.9;
+    color: #fff;
   }
 `;
 

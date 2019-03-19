@@ -13,6 +13,7 @@ const PostsList = styled.ul`
 
 const StyledPost = styled.article`
   ${tw`flex items-center p-5 mb-10 shadow`}
+  transition: all 300ms;
 
   &:hover {
     ${tw`shadow-md`}

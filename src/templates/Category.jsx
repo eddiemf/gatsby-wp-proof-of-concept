@@ -7,9 +7,12 @@ import SEO from '../components/SEO';
 import MainBanner from '../components/main-banner/index';
 import BlogLayout from '../components/blogLayout/BlogLayout';
 
-const Category = ({ pageContext, data }) => {
-  const pageBanner = get(data, `wordpressPage.acf.pageBanner`, {});
-  const posts = get(data, `allWordpressPost.edges`, []).map(({ node }) => ({
+const Category = ({
+  pageContext,
+  data: { wordpressCategory: category, allWordpressPost },
+}) => {
+  const pageBanner = get(category, `acf.Banner`, {});
+  const posts = get(allWordpressPost, `edges`, []).map(({ node }) => ({
     ...node,
     id: node.wordpress_id,
     imageSizes: node.featured_media.localFile.childImageSharp,
@@ -18,18 +21,21 @@ const Category = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <SEO title={pageContext.categoryName} keywords={[`gatsby`, `application`, `react`]} />
+      <SEO
+        title={category.name}
+        keywords={[`gatsby`, `application`, `react`]}
+      />
       <MainBanner
         imageSizes={pageBanner.image.localFile.childImageSharp.fluid}
         imageAlt={pageBanner.imageAlt}
-        title={`<h1>${pageContext.categoryName}</h1>`}
-        subtitle={`<p>${pageContext.categoryDescription}</p>`}
+        title={`<h1>${category.name}</h1>`}
+        subtitle={`<p>${category.description}</p>`}
       />
       <BlogLayout
         categories={pageContext.categories}
         currentCategory={{
-          name: pageContext.categoryName,
-          slug: pageContext.categorySlug,
+          name: category.name,
+          slug: category.slug,
         }}
         posts={posts}
       />
@@ -41,10 +47,13 @@ export default Category;
 
 export const query = graphql`
   query($categorySlug: String!) {
-    allWordpressPost(filter: { categories: { elemMatch: { slug: { eq: $categorySlug } } } }) {
+    allWordpressPost(
+      filter: { categories: { elemMatch: { slug: { eq: $categorySlug } } } }
+    ) {
       edges {
         node {
           wordpress_id
+          slug
           title
           date
           categories {
@@ -55,7 +64,7 @@ export const query = graphql`
             localFile {
               childImageSharp {
                 fixed(width: 100, height: 100) {
-                  ...GatsbyImageSharpFixed_withWebp
+                  ...GatsbyImageSharpFixed_tracedSVG
                 }
               }
             }
@@ -79,6 +88,25 @@ export const query = graphql`
           }
           title
           subtitle
+        }
+      }
+    }
+    wordpressCategory(slug: { eq: $categorySlug }) {
+      name
+      slug
+      description
+      acf {
+        Banner {
+          image_alt
+          image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1440, maxHeight: 500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }

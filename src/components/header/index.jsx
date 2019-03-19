@@ -9,7 +9,7 @@ const HeaderContainer = () => {
       logo: file(relativePath: { eq: "gatsby-icon.png" }) {
         childImageSharp {
           fixed(width: 60) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_tracedSVG
           }
         }
       }

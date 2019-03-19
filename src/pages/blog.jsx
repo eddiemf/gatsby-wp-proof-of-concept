@@ -47,6 +47,7 @@ export const pageQuery = graphql`
       edges {
         node {
           wordpress_id
+          slug
           title
           date
           categories {
@@ -57,7 +58,7 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                 fixed(width: 100, height: 100) {
-                  ...GatsbyImageSharpFixed_withWebp
+                  ...GatsbyImageSharpFixed_tracedSVG
                 }
               }
             }

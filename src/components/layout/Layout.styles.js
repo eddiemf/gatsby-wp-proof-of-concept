@@ -44,6 +44,11 @@ const SectionContent = styled.div`
   ${tw`leading-normal`}
 `;
 
+const ContainerContent = styled.div`
+  ${tw`mx-auto`}
+  max-width: 700px;
+`;
+
 export {
-  Container, Section, SectionTitle, SectionContent,
+  Container, Section, SectionTitle, SectionContent, ContainerContent,
 };

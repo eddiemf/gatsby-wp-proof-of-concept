@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 
 import {
   PostsSection,
@@ -11,7 +10,7 @@ import {
   PostContent,
 } from './Posts.styles';
 
-const parseRawDate = (rawDate) => {
+const parseRawDate = rawDate => {
   const date = new Date(Date.parse(rawDate));
   const day = date.getDate();
   const month = date.toLocaleDateString(`en-US`, { month: `long` });
@@ -31,29 +30,40 @@ const parseRawDate = (rawDate) => {
 const Posts = ({ posts }) => (
   <PostsSection>
     <PostsList>
-      {posts.map(({
-        id, title, date, categories, imageSizes, imageAlt,
-      }) => (
-        <li key={id}>
-          <StyledPost>
-            <PostContent>
-              <PostTitle dangerouslySetInnerHTML={{ __html: title }} />
-              <p>
-                {`Posted as `}
-                {categories.map(({ name, slug }, index) => (
-                  <span key={slug}>
-                    <Link to={`/categories/${slug}`}>{`#${name.toLowerCase()}`}</Link>
-                    {index < categories.length - 1 && `, `}
-                  </span>
-                ))}
-                {` on `}
-                {parseRawDate(date)}
-              </p>
-            </PostContent>
-            <PostImage fixed={imageSizes.fixed} alt={imageAlt} />
-          </StyledPost>
-        </li>
-      ))}
+      {posts.map(
+        ({ id, slug, title, date, categories, imageSizes, imageAlt }) => (
+          <li key={id}>
+            <StyledPost>
+              <PostContent>
+                <Link
+                  data-testid={`link-${id}`}
+                  to={`/blog/${slug}`}
+                  title="Read post"
+                >
+                  <PostTitle dangerouslySetInnerHTML={{ __html: title }} />
+                </Link>
+                <p>
+                  {`Posted on `}
+                  {categories.map(({ name, slug }, index) => (
+                    <span key={slug}>
+                      <Link
+                        to={`/categories/${slug}`}
+                        title={`Go to the ${name.toLowerCase()} category page`}
+                      >
+                        {`#${name.toLowerCase()}`}
+                      </Link>
+                      {index < categories.length - 1 && `, `}
+                    </span>
+                  ))}
+                  {` on `}
+                  {parseRawDate(date)}
+                </p>
+              </PostContent>
+              <PostImage fixed={imageSizes.fixed} alt={imageAlt} />
+            </StyledPost>
+          </li>
+        )
+      )}
     </PostsList>
   </PostsSection>
 );

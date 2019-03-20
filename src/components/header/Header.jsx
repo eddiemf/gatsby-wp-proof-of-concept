@@ -11,38 +11,36 @@ import {
   HeaderLinksMenu,
 } from './Header.styles';
 
-const Header = ({ logo }) => (
-  <HeaderBase>
-    <StyledHeaderContainer>
-      <Link to="/">
-        <Img fixed={logo.childImageSharp.fixed} alt="Gatsby logo" />
-      </Link>
-      <HeaderMainMenu>
-        <HeaderMenuItem>
-          <HeaderMenuItemLink to="/#intro">Intro</HeaderMenuItemLink>
-        </HeaderMenuItem>
-        <HeaderMenuItem>
-          <HeaderMenuItemLink to="/#the-problem">
-            The problem
-          </HeaderMenuItemLink>
-        </HeaderMenuItem>
-        <HeaderMenuItem>
-          <HeaderMenuItemLink to="/#the-solution">
-            The solution
-          </HeaderMenuItemLink>
-        </HeaderMenuItem>
-        <HeaderMenuItem>
-          <HeaderMenuItemLink to="/#about-me">About</HeaderMenuItemLink>
-        </HeaderMenuItem>
-      </HeaderMainMenu>
+const Header = ({ logo, isTransparent }) => {
+  return (
+    <HeaderBase isTransparent={isTransparent}>
+      <StyledHeaderContainer>
+        <Link to="/">
+          <Img fixed={logo.childImageSharp.fixed} alt="Gatsby logo" />
+        </Link>
+        <HeaderMainMenu>
+          <HeaderMenuItem>
+            <HeaderMenuItemLink to="/#intro">Intro</HeaderMenuItemLink>
+          </HeaderMenuItem>
+          <HeaderMenuItem>
+            <HeaderMenuItemLink to="/#the-problem">The problem</HeaderMenuItemLink>
+          </HeaderMenuItem>
+          <HeaderMenuItem>
+            <HeaderMenuItemLink to="/#the-solution">The solution</HeaderMenuItemLink>
+          </HeaderMenuItem>
+          <HeaderMenuItem>
+            <HeaderMenuItemLink to="/#about-me">About me</HeaderMenuItemLink>
+          </HeaderMenuItem>
+        </HeaderMainMenu>
 
-      <HeaderLinksMenu>
-        <HeaderMenuItem>
-          <HeaderMenuItemLink to="/blog">Blog</HeaderMenuItemLink>
-        </HeaderMenuItem>
-      </HeaderLinksMenu>
-    </StyledHeaderContainer>
-  </HeaderBase>
-);
+        <HeaderLinksMenu>
+          <HeaderMenuItem>
+            <HeaderMenuItemLink to="/blog">Blog</HeaderMenuItemLink>
+          </HeaderMenuItem>
+        </HeaderLinksMenu>
+      </StyledHeaderContainer>
+    </HeaderBase>
+  );
+};
 
 export default Header;

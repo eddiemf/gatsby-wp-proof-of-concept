@@ -6,7 +6,7 @@ import { Container } from '../layout/Layout.styles';
 
 const MainBannerSection = styled.section`
   position: relative;
-  height: 600px;
+  height: 100vh;
 `;
 
 const MainBannerBackdrop = styled.section`

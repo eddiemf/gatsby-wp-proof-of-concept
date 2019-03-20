@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "quotes": ["error", "backtick"],
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ]
+  }
+}

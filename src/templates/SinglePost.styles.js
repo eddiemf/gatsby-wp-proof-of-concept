@@ -24,7 +24,7 @@ const SinglePostImage = styled(Img)`
 `;
 
 const SinglePostContent = styled.div`
-  ${tw`pt-10 leading-normal text-lg`}
+  ${tw`py-10 leading-normal text-lg`}
 
   h1, h2, h3, h4, h5, h6 {
     ${tw`text-xl2`}
@@ -35,6 +35,10 @@ const SinglePostContent = styled.div`
   }
 `;
 
+const SinglePostCommentBox = styled.div`
+  ${tw`py-10`}
+`;
+
 export {
   SinglePostArticle,
   SinglePostHeader,
@@ -42,4 +46,5 @@ export {
   SinglePostImage,
   SinglePostContent,
   SinglePostDate,
+  SinglePostCommentBox,
 };

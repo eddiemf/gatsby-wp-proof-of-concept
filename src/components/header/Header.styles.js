@@ -12,15 +12,15 @@ const StyledHeaderContainer = styled(Container)`
 `;
 
 const HeaderMenuItem = styled.li`
-  ${tw`ml-6`}
+  ${tw`ml-6 font-bold`}
 `;
 
 const HeaderMainMenu = styled.ul`
-  ${tw`ml-5 mr-auto flex items-center list-reset`}
+  ${tw`ml-5 mr-auto my-0 flex items-end list-reset`}
 `;
 
 const HeaderLinksMenu = styled.ul`
-  ${tw`ml-auto flex items-center list-reset`}
+  ${tw`ml-auto my-0 flex items-center list-reset`}
 `;
 
 const HeaderMenuItemLink = styled(Link)`

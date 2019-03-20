@@ -6,12 +6,12 @@ import { Container } from '../layout/Layout.styles';
 
 const MainBannerSection = styled.section`
   position: relative;
-  height: 500px;
+  height: 600px;
 `;
 
 const MainBannerBackdrop = styled.section`
   ${tw`absolute w-full h-full`}
-  background-color: ${rgba(`#794acf`, 0.7)}
+  background-color: ${rgba(`#794acf`, 0.4)}
 `;
 
 const MainBannerContainer = styled(Container)`
@@ -20,9 +20,9 @@ const MainBannerContainer = styled(Container)`
 
 const MainBannerTitle = styled.div`
   & > * {
-    ${tw`text-yellow text-5xl font-normal my-0`}
+    ${tw`text-white text-5xl font-bold my-0`}
     text-shadow: 0 2px 2px #000;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 `;
 
@@ -41,12 +41,11 @@ const MainBannerButton = styled.a`
     rounded
     no-underline
     mt-4
+    shadow-md
   `}
-  text-shadow: 0 0 4px #000;
 
   &:hover {
-    opacity: 0.9;
-    color: #fff;
+    ${tw`text-white bg-purple-dark`}
   }
 `;
 

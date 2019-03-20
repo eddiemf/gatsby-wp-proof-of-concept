@@ -1,15 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import {
-  FacebookIcon,
-  FacebookShareButton,
-  TwitterShareButton,
-  TwitterIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-} from 'react-share';
+import Disqus from 'disqus-react';
 
 import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
@@ -24,6 +15,7 @@ import {
   SinglePostArticle,
   SinglePostHeader,
   SinglePostDate,
+  SinglePostCommentBox,
 } from './SinglePost.styles';
 import SocialButtons from '../components/socialButtons/SocialButtons';
 
@@ -35,6 +27,12 @@ const SinglePost = ({ data: { wordpressPost: post }, location }) => {
   const year = date.getFullYear();
   const month = date.toLocaleDateString(`en-US`, { month: `long` });
   const fullDate = `${month} ${day}, ${year}`;
+
+  const disqusConfig = {
+    url: location.href,
+    identifier: post.wordpress_id,
+    title: post.title,
+  };
 
   return (
     <Layout>
@@ -59,6 +57,15 @@ const SinglePost = ({ data: { wordpressPost: post }, location }) => {
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </ContainerContent>
+
+          <hr />
+
+          <SinglePostCommentBox>
+            <Disqus.DiscussionEmbed
+              shortname={`gatsbyislove`}
+              config={disqusConfig}
+            />
+          </SinglePostCommentBox>
         </Container>
       </SinglePostArticle>
     </Layout>
@@ -70,6 +77,7 @@ export default SinglePost;
 export const query = graphql`
   query($id: String!) {
     wordpressPost(id: { eq: $id }) {
+      wordpress_id
       title
       content
       date

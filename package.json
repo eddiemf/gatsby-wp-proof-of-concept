@@ -9,6 +9,7 @@
     "babel-eslint": "^10.0.1",
     "babel-plugin-styled-components": "^1.10.0",
     "babel-plugin-tailwind-components": "^0.5.10",
+    "disqus-react": "^1.0.5",
     "dotenv": "^7.0.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",

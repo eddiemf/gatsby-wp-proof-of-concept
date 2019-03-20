@@ -22,10 +22,14 @@ const Header = ({ logo }) => (
           <HeaderMenuItemLink to="/#intro">Intro</HeaderMenuItemLink>
         </HeaderMenuItem>
         <HeaderMenuItem>
-          <HeaderMenuItemLink to="/#the-problem">The problem</HeaderMenuItemLink>
+          <HeaderMenuItemLink to="/#the-problem">
+            The problem
+          </HeaderMenuItemLink>
         </HeaderMenuItem>
         <HeaderMenuItem>
-          <HeaderMenuItemLink to="/#the-solution">The solution</HeaderMenuItemLink>
+          <HeaderMenuItemLink to="/#the-solution">
+            The solution
+          </HeaderMenuItemLink>
         </HeaderMenuItem>
         <HeaderMenuItem>
           <HeaderMenuItemLink to="/#about-me">About</HeaderMenuItemLink>

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-testing-library';
 import MainBanner from './MainBanner';
 
-describe(`Slider component`, () => {
+describe(`Main banner component`, () => {
   const imageSizes = {
     src: `source`,
     srcSet: ``,

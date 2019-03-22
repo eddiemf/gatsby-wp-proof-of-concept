@@ -5,8 +5,6 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@types/jest": "^24.0.11",
-    "babel-eslint": "^10.0.1",
     "babel-plugin-styled-components": "^1.10.0",
     "babel-plugin-tailwind-components": "^0.5.10",
     "disqus-react": "^1.0.5",
@@ -19,6 +17,7 @@
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-postcss": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.8",
+    "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-sharp": "^2.0.25",
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-plugin-tailwindcss": "^1.0.3",
@@ -39,6 +38,8 @@
     "tailwindcss": "^0.7.4"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.3.1",
     "babel-preset-gatsby": "^0.1.8",
     "eslint": "^5.15.2",

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-testing-library';
 import Posts from './Posts';
 
-describe(`Slider component`, () => {
+describe(`Posts component`, () => {
   const imageSizes = {
     fixed: {
       width: 100,

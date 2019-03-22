@@ -1,22 +1,58 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import tw from 'tailwind.macro';
+import { Link } from 'gatsby';
 import { Container } from '../layout/Layout.styles';
+import Logo from '../../assets/gatsby-logo.svg';
+import tailwind from '../../../tailwind';
+import { rgba } from 'polished';
+
+const HeaderLogo = styled(Logo)`
+  width: 100px;
+
+  path {
+    transition: 300ms;
+  }
+`;
 
 const HeaderMenuItemLink = styled(Link)`
-  ${tw`hover:text-purple-dark focus:text-purple-dark no-underline`}
+  ${tw`relative no-underline`}
   transition: all 300ms;
+
+  &::after {
+    ${tw`absolute block w-full bg-purple-dark`}
+    content: '';
+    opacity: 0;
+    visibility: hidden;
+    bottom: -15px;
+    height: 4px;
+    transition: 300ms;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 `;
 
 const HeaderBase = styled.header`
-  transition: all 300ms;
   ${tw`py-2 shadow fixed z-50 w-full`}
-  ${props =>
-    props.isTransparent ? tw`bg-transparent border-b-2` : tw`bg-white`}
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: ${props => (props.isTransparent ? rgba(`#fff`, 0.3) : `transparent`)};
+  background: ${props => (props.isTransparent ? `transparent` : `#fff`)};
+  transition: all 600ms;
 
   ${HeaderMenuItemLink} {
-    ${props => (props.isTransparent ? tw`text-white` : tw``)}
-    text-shadow: ${props => (props.isTransparent ? `0 1px 1px #000` : `none`)};
+    color: ${props => (props.isTransparent ? `white` : tailwind.colors[`grey-darkest`])};
+  }
+
+  ${HeaderLogo} {
+    path:nth-child(1) {
+      fill: ${props => (props.isTransparent ? `white` : tailwind.colors[`grey-darkest`])};
+    }
   }
 `;
 
@@ -25,7 +61,7 @@ const StyledHeaderContainer = styled(Container)`
 `;
 
 const HeaderMenuItem = styled.li`
-  ${tw`ml-6 font-bold`}
+  ${tw`ml-8 font-bold`}
 `;
 
 const HeaderMainMenu = styled.ul`
@@ -37,6 +73,7 @@ const HeaderLinksMenu = styled.ul`
 `;
 
 export {
+  HeaderLogo,
   HeaderBase,
   StyledHeaderContainer,
   HeaderMainMenu,

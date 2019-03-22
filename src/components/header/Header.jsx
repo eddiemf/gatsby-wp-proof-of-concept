@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-
+import PropTypes from 'prop-types';
 import {
   HeaderMenuItem,
   HeaderMenuItemLink,
@@ -44,6 +44,10 @@ const Header = ({ isTransparent }) => {
       </StyledHeaderContainer>
     </HeaderBase>
   );
+};
+
+Header.propTypes = {
+  isTransparent: PropTypes.bool,
 };
 
 export default Header;

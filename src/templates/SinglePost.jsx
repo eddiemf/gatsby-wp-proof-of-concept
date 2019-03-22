@@ -4,10 +4,7 @@ import Disqus from 'disqus-react';
 
 import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
-import {
-  Container,
-  ContainerContent,
-} from '../components/layout/Layout.styles';
+import { Container, ContainerContent } from '../components/layout/Layout.styles';
 import {
   SinglePostTitle,
   SinglePostImage,
@@ -19,7 +16,7 @@ import {
 } from './SinglePost.styles';
 import SocialButtons from '../components/socialButtons/SocialButtons';
 
-const SinglePost = ({ data: { wordpressPost: post }, location }) => {
+const SinglePost = ({ data: { wordpressPost: post } }) => {
   const imageSizes = post.featured_media.localFile.childImageSharp.fixed;
 
   const date = new Date(Date.parse(post.date));
@@ -35,7 +32,7 @@ const SinglePost = ({ data: { wordpressPost: post }, location }) => {
   };
 
   return (
-    <Layout>
+    <Layout isSinglePost>
       <SEO title={post.title} keywords={[`gatsby`, `application`, `react`]} />
       <SinglePostArticle>
         <Container>
@@ -53,18 +50,13 @@ const SinglePost = ({ data: { wordpressPost: post }, location }) => {
           <hr />
 
           <ContainerContent>
-            <SinglePostContent
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            <SinglePostContent dangerouslySetInnerHTML={{ __html: post.content }} />
           </ContainerContent>
 
           <hr />
 
           <SinglePostCommentBox>
-            <Disqus.DiscussionEmbed
-              shortname={`gatsbyislove`}
-              config={disqusConfig}
-            />
+            <Disqus.DiscussionEmbed shortname={`gatsbyislove`} config={disqusConfig} />
           </SinglePostCommentBox>
         </Container>
       </SinglePostArticle>

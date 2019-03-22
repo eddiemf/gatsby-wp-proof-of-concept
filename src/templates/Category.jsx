@@ -7,10 +7,7 @@ import SEO from '../components/SEO';
 import MainBanner from '../components/main-banner/index';
 import BlogLayout from '../components/blogLayout/BlogLayout';
 
-const Category = ({
-  pageContext,
-  data: { wordpressCategory: category, allWordpressPost },
-}) => {
+const Category = ({ pageContext, data: { wordpressCategory: category, allWordpressPost } }) => {
   const pageBanner = get(category, `acf.Banner`, {});
   const posts = get(allWordpressPost, `edges`, []).map(({ node }) => ({
     ...node,
@@ -21,10 +18,7 @@ const Category = ({
 
   return (
     <Layout>
-      <SEO
-        title={category.name}
-        keywords={[`gatsby`, `application`, `react`]}
-      />
+      <SEO title={category.name} keywords={[`gatsby`, `application`, `react`]} />
       <MainBanner
         imageSizes={pageBanner.image.localFile.childImageSharp.fluid}
         imageAlt={pageBanner.imageAlt}
@@ -47,9 +41,7 @@ export default Category;
 
 export const query = graphql`
   query($categorySlug: String!) {
-    allWordpressPost(
-      filter: { categories: { elemMatch: { slug: { eq: $categorySlug } } } }
-    ) {
+    allWordpressPost(filter: { categories: { elemMatch: { slug: { eq: $categorySlug } } } }) {
       edges {
         node {
           wordpress_id

@@ -14,9 +14,7 @@ import {
 const IndexPage = ({
   data: {
     wordpressPage: {
-      acf: {
-        intro, pageBanner, theProblem, theSolution,
-      },
+      acf: { intro, pageBanner, theProblem, theSolution },
     },
   },
 }) => (

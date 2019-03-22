@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import Header from './Header';
+import PropTypes from 'prop-types';
 
-const HeaderContainer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "gatsby-logo.svg" }) {
-        childImageSharp {
-          fixed(width: 40) {
-            ...GatsbyImageSharpFixed_tracedSVG
-          }
-        }
-      }
-    }
-  `);
-  const [isTransparent, setIsTransparent] = useState(true);
+const HeaderContainer = ({ alwaysVisible = false }) => {
+  const [isTransparent, setIsTransparent] = useState(!alwaysVisible);
   useEffect(() => {
+    if (alwaysVisible) return;
+
     document.addEventListener(`scroll`, () => {
       if (window.scrollY > 80) {
         setIsTransparent(false);
@@ -25,7 +16,11 @@ const HeaderContainer = () => {
     });
   }, []);
 
-  return <Header logo={data.logo} isTransparent={isTransparent} />;
+  return <Header isTransparent={isTransparent} />;
+};
+
+HeaderContainer.propTypes = {
+  alwaysVisible: PropTypes.bool,
 };
 
 export default HeaderContainer;

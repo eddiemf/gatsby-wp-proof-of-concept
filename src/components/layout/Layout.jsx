@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import '../../index.css';
 import HeaderContainer from '../header';
 
-const Layout = ({ isSinglePost = false, children }) => (
+const Layout = ({ page, children }) => (
   <>
-    <HeaderContainer alwaysVisible={isSinglePost} />
+    <HeaderContainer alwaysVisible={page === `single-post`} page={page} />
     {children}
   </>
 );
 
 Layout.propTypes = {
-  isSinglePost: PropTypes.bool,
+  page: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 

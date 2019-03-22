@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
 
@@ -18,7 +19,7 @@ const BlogPage = ({ data }) => {
   }));
 
   return (
-    <Layout>
+    <Layout page="blog">
       <SEO title="Blog" keywords={[`gatsby`, `application`, `react`]} />
       <MainBanner
         imageSizes={pageBanner.image.localFile.childImageSharp.fluid}
@@ -29,6 +30,10 @@ const BlogPage = ({ data }) => {
       <BlogLayout categories={categories} posts={posts} />
     </Layout>
   );
+};
+
+BlogPage.propTypes = {
+  data: PropTypes.object,
 };
 
 export default BlogPage;

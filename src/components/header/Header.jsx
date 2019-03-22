@@ -11,7 +11,9 @@ import {
   HeaderLogo,
 } from './Header.styles';
 
-const Header = ({ isTransparent }) => {
+const Header = ({ isTransparent, page }) => {
+  const isBlogPage = page === `blog` || page === `category` || page === `single-post`;
+
   return (
     <HeaderBase isTransparent={isTransparent}>
       <StyledHeaderContainer>
@@ -38,7 +40,9 @@ const Header = ({ isTransparent }) => {
 
         <HeaderLinksMenu>
           <HeaderMenuItem>
-            <HeaderMenuItemLink to="/blog">Blog</HeaderMenuItemLink>
+            <HeaderMenuItemLink active={isBlogPage} to="/blog">
+              Blog
+            </HeaderMenuItemLink>
           </HeaderMenuItem>
         </HeaderLinksMenu>
       </StyledHeaderContainer>
@@ -48,6 +52,7 @@ const Header = ({ isTransparent }) => {
 
 Header.propTypes = {
   isTransparent: PropTypes.bool,
+  page: PropTypes.string.isRequired,
 };
 
 export default Header;

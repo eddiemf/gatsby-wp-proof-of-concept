@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
@@ -18,7 +19,7 @@ const IndexPage = ({
     },
   },
 }) => (
-  <Layout>
+  <Layout page="home">
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <MainBanner
       imageSizes={pageBanner.image.localFile.childImageSharp.fluid}
@@ -50,6 +51,10 @@ const IndexPage = ({
     </Container>
   </Layout>
 );
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
+};
 
 export default IndexPage;
 

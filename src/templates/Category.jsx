@@ -17,7 +17,7 @@ const Category = ({ pageContext, data: { wordpressCategory: category, allWordpre
   }));
 
   return (
-    <Layout>
+    <Layout page="category">
       <SEO title={category.name} keywords={[`gatsby`, `application`, `react`]} />
       <MainBanner
         imageSizes={pageBanner.image.localFile.childImageSharp.fluid}

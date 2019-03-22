@@ -21,8 +21,8 @@ const HeaderMenuItemLink = styled(Link)`
   &::after {
     ${tw`absolute block w-full bg-purple-dark`}
     content: '';
-    opacity: 0;
-    visibility: hidden;
+    opacity: ${props => props.active ? 1 : 0};
+    visibility: ${props => props.active ? `visible` : `hidden`};
     bottom: -15px;
     height: 4px;
     transition: 300ms;

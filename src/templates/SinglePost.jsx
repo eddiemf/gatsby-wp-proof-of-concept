@@ -32,7 +32,7 @@ const SinglePost = ({ data: { wordpressPost: post } }) => {
   };
 
   return (
-    <Layout isSinglePost>
+    <Layout page="single-post">
       <SEO title={post.title} keywords={[`gatsby`, `application`, `react`]} />
       <SinglePostArticle>
         <Container>

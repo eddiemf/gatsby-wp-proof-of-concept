@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import PropTypes from 'prop-types';
 
-const HeaderContainer = ({ alwaysVisible = false }) => {
+const HeaderContainer = ({ alwaysVisible = false, ...props }) => {
   const [isTransparent, setIsTransparent] = useState(!alwaysVisible);
   useEffect(() => {
     if (alwaysVisible) return;
@@ -16,7 +16,7 @@ const HeaderContainer = ({ alwaysVisible = false }) => {
     });
   }, []);
 
-  return <Header isTransparent={isTransparent} />;
+  return <Header isTransparent={isTransparent} {...props} />;
 };
 
 HeaderContainer.propTypes = {

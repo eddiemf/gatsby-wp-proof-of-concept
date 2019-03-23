@@ -492,3 +492,12 @@ hr {
     rgba(0, 0, 0, 0)
   );
 }
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

@@ -37,6 +37,24 @@ const SinglePostContent = styled.div`
   a {
     color: #794acf;
   }
+
+  .gallery-container {
+    height: 400px;
+  }
+
+  .gallery-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .swiper-button {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-size: 10px;
+  }
 `;
 
 const SinglePostCommentBox = styled.div`

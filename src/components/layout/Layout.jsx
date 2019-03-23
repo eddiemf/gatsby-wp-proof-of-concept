@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import 'swiper/dist/css/swiper.min.css';
 
 import '../../index.css';
 import HeaderContainer from '../header';

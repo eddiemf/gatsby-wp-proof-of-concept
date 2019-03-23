@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Disqus from 'disqus-react';
+import { Link } from 'gatsby';
 
 import { Container, ContainerContent } from '../layout/Layout.styles';
 import {
@@ -14,7 +15,7 @@ import {
   SinglePostCategories,
 } from './SinglePost.styles';
 import SocialButtons from '../socialButtons/SocialButtons';
-import { Link } from 'gatsby';
+import useSwiperGalleryEffect from './useSwiperGalleryEffect';
 
 const SinglePost = ({
   id,
@@ -26,6 +27,18 @@ const SinglePost = ({
   date,
   pageHref,
 }) => {
+  useSwiperGalleryEffect({
+    loop: true,
+    navigation: {
+      nextEl: `.swiper-button-next`,
+      prevEl: `.swiper-button-prev`,
+    },
+    pagination: {
+      el: `.swiper-pagination`,
+      clickable: true,
+    },
+  });
+
   const dateObj = new Date(Date.parse(date));
   const day = dateObj.getDate();
   const year = dateObj.getFullYear();

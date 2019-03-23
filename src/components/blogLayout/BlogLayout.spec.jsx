@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-testing-library';
 import { shallow } from 'enzyme';
 import BlogLayout from './BlogLayout';
 import Sidebar from '../sidebar/Sidebar';

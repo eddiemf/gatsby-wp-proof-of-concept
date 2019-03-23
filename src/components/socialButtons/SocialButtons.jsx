@@ -1,5 +1,4 @@
 import React from 'react';
-import { SinglePostSocialIcons } from '../../templates/SinglePost.styles';
 import PropTypes from 'prop-types';
 import {
   FacebookIcon,

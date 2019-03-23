@@ -15,6 +15,10 @@ const SinglePostTitle = styled.h1`
   ${tw`text-xl5 text-center`}
 `;
 
+const SinglePostCategories = styled.p`
+  ${tw`text-center`}
+`;
+
 const SinglePostDate = styled.span`
   ${tw`block text-center my-5 uppercase`}
 `;
@@ -43,6 +47,7 @@ export {
   SinglePostArticle,
   SinglePostHeader,
   SinglePostTitle,
+  SinglePostCategories,
   SinglePostImage,
   SinglePostContent,
   SinglePostDate,

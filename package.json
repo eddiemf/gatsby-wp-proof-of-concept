@@ -9,13 +9,10 @@
     "babel-plugin-tailwind-components": "^0.5.10",
     "disqus-react": "^1.0.5",
     "dotenv": "^7.0.0",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
     "gatsby": "^2.1.27",
     "gatsby-image": "^2.0.31",
     "gatsby-plugin-manifest": "^2.0.22",
     "gatsby-plugin-offline": "^2.0.24",
-    "gatsby-plugin-postcss": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.8",
     "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-sharp": "^2.0.25",
@@ -38,6 +35,8 @@
     "tailwindcss": "^0.7.4"
   },
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "@types/jest": "^24.0.11",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.3.1",

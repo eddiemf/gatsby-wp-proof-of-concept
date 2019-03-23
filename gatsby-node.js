@@ -41,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
         categories.forEach(({ name, slug, description }) => {
           createPage({
             path: `/categories/${slug}`,
-            component: path.resolve(`./src/templates/Category.jsx`),
+            component: path.resolve(`./src/templates/Category.template.jsx`),
             context: {
               categorySlug: slug,
               categoryName: name,
@@ -59,14 +59,14 @@ exports.createPages = ({ graphql, actions }) => {
         posts.forEach(({ id, slug }) => {
           createPage({
             path: `/blog/${slug}`,
-            component: path.resolve(`./src/templates/SinglePost.jsx`),
+            component: path.resolve(`./src/templates/SinglePost.template.jsx`),
             context: { id },
           });
         });
 
         resolve();
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error);
       });
   });

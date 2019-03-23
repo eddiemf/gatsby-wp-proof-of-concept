@@ -27,8 +27,13 @@ const Section = styled.section`
 `;
 
 const SectionTitle = styled.div`
-  & > * {
-    ${tw`relative text-grey-darkest text-4xl text-center`}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    ${tw`relative mb-10 text-grey-darkest text-4xl text-center`}
 
     &::after {
       ${tw`absolute block w-10 h-1 bg-purple rounded`}
@@ -41,7 +46,19 @@ const SectionTitle = styled.div`
 `;
 
 const SectionContent = styled.div`
-  ${tw`leading-normal`}
+  ${tw`leading-normal text-lg`}
+
+  h1, h2, h3, h4, h5, h6 {
+    ${tw`text-xl2 m-0`}
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: #794acf;
+  }
 `;
 
 const ContainerContent = styled.div`
@@ -49,6 +66,4 @@ const ContainerContent = styled.div`
   max-width: 700px;
 `;
 
-export {
-  Container, Section, SectionTitle, SectionContent, ContainerContent,
-};
+export { Container, Section, SectionTitle, SectionContent, ContainerContent };

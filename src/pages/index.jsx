@@ -10,6 +10,7 @@ import {
   SectionTitle,
   Section,
   SectionContent,
+  ContainerContent,
 } from '../components/layout/Layout.styles';
 
 const IndexPage = ({
@@ -31,23 +32,25 @@ const IndexPage = ({
       buttonTitle={pageBanner.anchor_title}
     />
     <Container>
-      <Section id="intro">
-        <SectionTitle dangerouslySetInnerHTML={{ __html: intro.title }} />
-        <SectionContent dangerouslySetInnerHTML={{ __html: intro.content }} />
-      </Section>
-      <Section id="the-problem">
-        <SectionTitle dangerouslySetInnerHTML={{ __html: theProblem.title }} />
-        <SectionContent dangerouslySetInnerHTML={{ __html: theProblem.content }} />
-      </Section>
-      <Section id="the-solution">
-        <SectionTitle dangerouslySetInnerHTML={{ __html: theSolution.title }} />
-        <SectionContent dangerouslySetInnerHTML={{ __html: theSolution.content }} />
-      </Section>
-      <Section id="about-me">
-        <SectionTitle>
-          <h2>About me</h2>
-        </SectionTitle>
-      </Section>
+      <ContainerContent>
+        <Section id="intro">
+          <SectionTitle dangerouslySetInnerHTML={{ __html: intro.title }} />
+          <SectionContent dangerouslySetInnerHTML={{ __html: intro.content }} />
+        </Section>
+        <Section id="the-problem">
+          <SectionTitle dangerouslySetInnerHTML={{ __html: theProblem.title }} />
+          <SectionContent dangerouslySetInnerHTML={{ __html: theProblem.content }} />
+        </Section>
+        <Section id="the-solution">
+          <SectionTitle dangerouslySetInnerHTML={{ __html: theSolution.title }} />
+          <SectionContent dangerouslySetInnerHTML={{ __html: theSolution.content }} />
+        </Section>
+        <Section id="about-me">
+          <SectionTitle>
+            <h2>About me</h2>
+          </SectionTitle>
+        </Section>
+      </ContainerContent>
     </Container>
   </Layout>
 );

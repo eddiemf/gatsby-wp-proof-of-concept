@@ -9,7 +9,7 @@
     "babel-plugin-tailwind-components": "^0.5.10",
     "disqus-react": "^1.0.5",
     "dotenv": "^7.0.0",
-    "gatsby": "^2.1.27",
+    "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.31",
     "gatsby-plugin-manifest": "^2.0.22",
     "gatsby-plugin-offline": "^2.0.24",
@@ -35,12 +35,12 @@
     "tailwindcss": "^0.7.4"
   },
   "devDependencies": {
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
     "@types/jest": "^24.0.11",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.3.1",
     "babel-preset-gatsby": "^0.1.8",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.2",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",

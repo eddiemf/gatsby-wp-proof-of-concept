@@ -26,10 +26,10 @@ describe(`Main banner component`, () => {
     const button = getByText(/Some button text/i);
     const image = getByAltText(/Some image alt/i);
 
-    expect(image).toBeDefined;
+    expect(image).toBeDefined();
     expect(image.getAttribute(`src`)).toMatch(/source/i);
     expect(image).toHaveProperty(`srcset`, ``);
-    expect(button).toBeDefined;
+    expect(button).toBeDefined();
     expect(button).toHaveProperty(`title`, `Some button title`);
     expect(button.getAttribute(`href`)).toMatch(/Some button link/i);
   });

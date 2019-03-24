@@ -39,15 +39,15 @@ describe(`Posts component`, () => {
   it(`renders a list of posts based on passed props`, () => {
     const { getByText } = render(<Posts {...props} />);
 
-    expect(getByText(/the title/i)).toBeDefined;
-    expect(getByText(/the title 2/i)).toBeDefined;
+    expect(getByText(/the title/i)).toBeDefined();
+    expect(getByText(/the title 2/i)).toBeDefined();
   });
 
   it(`renders the parsed date on each post`, () => {
     const { getByText } = render(<Posts {...props} />);
 
-    expect(getByText(/2nd September/i)).toBeDefined;
-    expect(getByText(/8th March/i)).toBeDefined;
+    expect(getByText(/2nd September/i)).toBeDefined();
+    expect(getByText(/8th March/i)).toBeDefined();
   });
 
   it(`renders the lowercased categories links of each post with proper uri`, () => {
@@ -61,9 +61,9 @@ describe(`Posts component`, () => {
   it(`renders the categories links of each post with proper title`, () => {
     const { getByTitle } = render(<Posts {...props} />);
 
-    expect(getByTitle(/name 1/i)).toBeDefined;
-    expect(getByTitle(/name 2/i)).toBeDefined;
-    expect(getByTitle(/name 3/i)).toBeDefined;
+    expect(getByTitle(/name 1/i)).toBeDefined();
+    expect(getByTitle(/name 2/i)).toBeDefined();
+    expect(getByTitle(/name 3/i)).toBeDefined();
   });
 
   it(`renders the image of each post with proper src and alt attributes`, () => {

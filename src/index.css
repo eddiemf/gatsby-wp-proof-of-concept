@@ -472,6 +472,10 @@ body {
   color: #3d4852;
 }
 
+p {
+  margin: 0;
+}
+
 a {
   color: #3d4852;
   text-decoration: none;

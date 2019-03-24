@@ -10,8 +10,8 @@ describe(`Sidebar component`, () => {
 
   it(`renders a list of lowercased text links based on passed categories`, () => {
     const { getByText } = render(<Sidebar {...props} />);
-    expect(getByText(/name 1/i)).toBeDefined;
-    expect(getByText(/name 2/i)).toBeDefined;
+    expect(getByText(/name 1/i)).toBeDefined();
+    expect(getByText(/name 2/i)).toBeDefined();
   });
 
   it(`renders the list of links with proper href`, () => {
@@ -22,7 +22,7 @@ describe(`Sidebar component`, () => {
 
   it(`renders the list of links with proper title attribute`, () => {
     const { getByTitle } = render(<Sidebar {...props} />);
-    expect(getByTitle(/See all posts from #name 1/i)).toBeDefined;
-    expect(getByTitle(/See all posts from #name 2/i)).toBeDefined;
+    expect(getByTitle(/See all posts from #name 1/i)).toBeDefined();
+    expect(getByTitle(/See all posts from #name 2/i)).toBeDefined();
   });
 });

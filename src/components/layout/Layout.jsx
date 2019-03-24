@@ -4,11 +4,13 @@ import 'swiper/dist/css/swiper.min.css';
 
 import '../../index.css';
 import HeaderContainer from '../header';
+import Footer from '../footer/Footer';
 
 const Layout = ({ page, children }) => (
   <>
     <HeaderContainer alwaysVisible={page === `single-post`} page={page} />
     {children}
+    <Footer />
   </>
 );
 

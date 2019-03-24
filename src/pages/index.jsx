@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import get from 'lodash/get';
 
 import Layout from '../components/layout/Layout';
 import SEO from '../components/SEO';
@@ -12,11 +13,12 @@ import {
   SectionContent,
   ContainerContent,
 } from '../components/layout/Layout.styles';
+import PersonCard from '../components/personCard/PersonCard';
 
 const IndexPage = ({
   data: {
     wordpressPage: {
-      acf: { intro, pageBanner, theProblem, theSolution },
+      acf: { intro, pageBanner, theProblem, theSolution, aboutMe },
     },
   },
 }) => (
@@ -47,8 +49,15 @@ const IndexPage = ({
         </Section>
         <Section id="about-me">
           <SectionTitle>
-            <h2>About me</h2>
+            <h2>{aboutMe.title}</h2>
           </SectionTitle>
+          <PersonCard
+            name={aboutMe.name}
+            position={aboutMe.position}
+            description={aboutMe.description}
+            image={get(aboutMe, `image.localFile.childImageSharp.fixed`)}
+            alt={aboutMe.image_alt}
+          />
         </Section>
       </ContainerContent>
     </Container>
@@ -93,6 +102,22 @@ export const pageQuery = graphql`
         theSolution: The_solution {
           title
           content
+        }
+        aboutMe: about_me {
+          title
+          image {
+            localFile {
+              childImageSharp {
+                fixed(width: 100, height: 100) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+          image_alt
+          name
+          position
+          description
         }
       }
     }
